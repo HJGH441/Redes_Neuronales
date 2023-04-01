@@ -1,32 +1,12 @@
 ## Creating index variable 
 
-# Read the Data
-data = read.csv("C:/Users/Dell/Downloads/cereals.csv", header=T)
+# Leer Archivo
+path = file.choose()
+data = read.csv(path, header=T)
 
 # Random sampling
-samplesize = 0.60 * nrow(data)
 set.seed(80)
-index = sample( seq_len ( nrow ( data ) ), size = samplesize )
-
-# Create training and test set
-datatrain = data[ index, ]
-datatest = data[ -index, ]
-
-
-## Scale data for neural network
-
-max = apply(data , 2 , max)
-min = apply(data, 2 , min)
-scaled = as.data.frame(scale(data, center = min, scale = max - min))
-  
-  ## Creating index variable 
-  
-  # Read the Data
-  data = read.csv("C:/Users/Dell/Downloads/cereals.csv", header=T)
-
-# Random sampling
 samplesize = 0.60 * nrow(data)
-set.seed(80)
 index = sample( seq_len ( nrow ( data ) ), size = samplesize )
 
 # Create training and test set
